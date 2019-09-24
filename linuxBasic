@@ -1,0 +1,140 @@
+
+
+3.
+a)
+      1   Executable programs or shell commands
+      2   System calls (functions provided by the kernel)
+      3   Library calls (functions within program libraries)
+      4   Special files (usually found in /dev)
+      5   File formats and conventions eg /etc/passwd
+      6   Games
+      7   Miscellaneous  (including  macro  packages  and  conventions), e.g.
+          man(7), groff(7)
+      8   System administration commands (usually only for root)
+      9   Kernel routines [Non standard]
+
+b)
+      1, Executable programs or shell commands
+
+c)
+      5, File formats and conventions
+
+d)
+      8, System administration commands
+
+4-1.
+a) Måste köras mkpasswd PASSWORD SALT
+b) Kan t.ex köras uniq, eller uniq med en eller flera option och en input (input är valfri), har du en input är det valfritt att ha en output
+   Men du kan inte ha en output utan att ha en input.
+c) Kan t.ex köras gzip, gzip med någon av flaggorna (t.ex -a), och eller med -S suffix, och eller ett eller flera namn.
+d.1) Kan köras chcon med en eller flera CONTEXT FILE och en 0 eller flera options
+d.2) Kan köras chcon med 0 eller flera OPTIONS, 0 eller 1 -u USER, 0 eller 1 -r ROLE och 1 eller fler FILE
+d.3) Kan köras chcon med 0 eller flera OPTIONS och måste ha med --reference=RFILE och 1 eller flera FILE
+
+4-2.
+a) Beskriver vad kommandot gör och hur man kan använda det
+b) Description eller Option
+c) See also
+d) Files
+
+4-3.
+a) -a
+b) -k
+
+4-4.
+a) Visar information om filer
+b) -ls
+c) Rekursivt, kör ls på alla subdirectories också.
+
+5-1.
+a) ssh
+b) ../../bin/ssh
+
+6-1.
+a) chmod u+rw,g+r,o+r FILE
+b) chmod g-w FILE
+c) chmod u+x,g+x FILE
+
+7-1.
+a) Read och write för user, group och others
+b) Read, write and execute för user och group, inget för others
+c) Read och write för User, Read för group, inget för others
+d) Read för User, group och others
+
+7-2. -R
+
+7-3. Har man inte x permission på en directory så kan man inte söka i mappen
+
+7-4. a (chmod -R 660 dir ) since it gives read and write to user and group and nothing to others
+    c would also work but it is longer and harder to write.
+
+8-1. chown -R user:group folder/
+
+9-1. Gå ut en mapp
+9-2. Gå ut två mappar
+9-3. Den visar mappens innehåll inklusive filer som börjar med . Den visar det i long list format och den visar om det är en mapp, regular file
+     eller executable fil.
+9-4.
+a) c betyder att det är en character special file, dom beter sig som pipes.
+b) Dave och root är användarna, staff och audio är gruppen
+c) Owner (root) och alla i gruppen audio kan skriva till filen dspp
+
+9-5. Den kommer skriva över b (a kommer bli nya b). Kör man med flaggan -i kommer den fråga först innan den skriver över.
+9-6. cp -a (samma som att köra cp -dR --preserve=all)
+9.7
+chown root:wheel sercret
+chmod 640
+
+10-1. Bash
+10-2.
+/etc/profile - Används när man loggar in i en shell
+/etc/bash.bashrc - Används när shellen startar
+~/.bash_profile - Exekverar när man loggar in i en shell (en personlig init fil)
+~/.bashrc - En personlig init fil, körs när man startar bash
+~/.inputrc - Readline init fil.
+
+11-1.
+Path:
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/puppetlabs/bin
+PATH är en environment variabel som säger till shellen vilka mappar den ska söka efter exekverbara filer.
+11-2.
+echo $HOME
+Pathen till användarens hem-mapp.
+
+11-3.
+export PATH=$PATH:/sbin/:/courses/TDDI41/bin
+
+12-1.
+a) Redirectar standard-output från command till file1.
+b) Skickar standard output till file1, den skickar även standard-error till dit standard-output pekar men eftersom det görs först kommer det itne skrivas till file1.
+c) Standard output från command skickas till file1 och standard-error skickas till dit standard-output pekar. Eftersom det görs sist kommer det skrivas till file1.
+
+13-1.
+a) greppa allt från ls som heter något med doc (case-insensitive)
+b) Skicka standard-error till standard-output, greppa efter fail
+c) Skickar alla standard-output till /dev/null, skicka standard-error till standard-output och greppa efter fail
+
+13-2.
+a) ls -aR $HOME > /tmp/HOMEFILES
+b) find / -perm -o+w 2>/dev/null
+
+14-1. ping 127.0.0.1 ctrl-Z, fg, ctrl-C
+14.2.  ping 127.0.0.1 >/dev/null&, ps (hitta ping processens pid), kill <PID>
+14-3.
+kill -9 pid - Dödar processen med id pid, skicka signalen SIGKILL (hard kill).
+kill -9 -1 - Dödar alla processer vi kan döda
+14-4. ping 127.0.0.1 >/dev/null&, pkill ping
+
+16-1. HOME
+16-2. END
+16-3. /option
+16-4. n
+16-5.
+a) The default value for ForwardX11 is no.
+b) xbase-clients
+
+18-1. Outputa innehållet i /var/log/syslog till standard output, -f gör så att vi "followar" filen, när ny data läggs till så visas det på standard output.
+18-2. cat /var/log/syslog | grep -m 10 cron
+
+19-1. Alla services som startas från scripten som ligger i /etc/rcS.d och /etc/rc2.d
+19-2. /etc/init.d/ssh restart

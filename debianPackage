@@ -1,0 +1,17 @@
+1-1.
+a) apt-get install
+b) apt-get remove
+c) Laddar ner paket information från alla konfigurerade källor.
+d) Laddar ner och installerar de paket som apt-get update hittade, tar även bort gamla paket
+
+1-2.
+a) Visa vilka paket som finns listade på systemet.
+b) Ta bort allting på systemet som har med vim att göra.
+c) Filer som har installerats på system från packet bind9
+
+
+6-1. l
+6-2. /
+6-3. Add to instalation: +  Mark for deltetion: -
+6-4. g
+6-5. The package is broken.

@@ -1,0 +1,5 @@
+2-1 Why is $@ quoted (inside quotation marks) in the for loop.
+vi vill inte dela arumenten/filnamn på spaces.
+
+2-2 Could $* have been used instead of $@? Explain your answer. Hint: if you got exercise 3-1 right, this one should be easy to answer.
+niet suka blyat

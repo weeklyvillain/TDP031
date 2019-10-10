@@ -1,0 +1,5 @@
+5-1.  ${line:0:1} betyder att ta 1 karaktär från line vid position 0 ( ${var:offset:length} )
+5-2. : är ett null kommando (det gör ingenting)
+5-3. Allting som skrivs inom backticks `` körs som ett kommando innan main kommandot körs.
+5-4. $((...)) kallas för ARITHMETIC EVALUATION, den utför en mattematisk operation baserat på vad som skriv innanför paranteserna
+5-5. ls -A | grep "^\." | wc -w

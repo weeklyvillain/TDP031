@@ -1,0 +1,8 @@
+6-1:
+ a) It is a line break, so the code can be written on multiple lines.
+ b) { } means that the code inside will be run in the current shell, if we used
+    ( ) it would be run in a sub-shell. If we used ( ) the exit would only exit the sub-shell and not the main shell so the program
+    would continue running.
+
+6-2: The 'local' keyword makes the variable local, it can only be accessed from that scope (the smtp_send function).
+6-3: We guess this helps it makes more readable. 

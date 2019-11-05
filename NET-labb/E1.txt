@@ -48,8 +48,8 @@ c) Which sysctl controls IP forwarding.
 1-5 Think of which addresses your hosts should use? Which names? Which netmasks and broadcast addresses?
     Names: Server, Client1, Client2, Router
     Netmask: 255.255.255.0
-    Addresses: 192.168.0.1 -> 192.168.0.254
-    Broadcast: 192.168.0.255
+    Addresses: 10.0.0.1 -> 10.0.0.254
+    Broadcast: 10.0.0.255
 1-6 Explain the difference between routing and forwarding (as related to IP networking).
     Routing is the set of roules that defines how to send a packet forward.
     Forwarding is the actual act of sending a packet forward.

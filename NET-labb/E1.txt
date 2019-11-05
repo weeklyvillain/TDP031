@@ -1,0 +1,55 @@
+1-1 Review the documentation for the ping utility and answer the following questions.
+a) What is the ping utility used for?
+    The ping utility is used for checking if the system can access a server.
+b) What command-line option to ping causes it to print numerical addresses.
+    ping <IP> -n
+c) How does the ping utility work.
+    Ping uses the ECHO_REQUEST from the ICMP protocol to get a ECHO_RESPONSE from a host
+    or gateway. 
+d) How can you detect if the host 10.17.1.1 is up.
+    ping 10.17.1.1, then check if we get a response.
+
+1-2 Review the documentation for the traceroute utility and answer the following questions.
+a) What is the traceroute utility used for.
+    Traceroute is used to track the path that a packet takes from my computer to
+    the computer/server.
+b) How does traceroute work.
+    Traceroute launches probe packets with a shrot TTL (time to live) and then listen for 
+    a ICMP "time exceeded" reply, the TTL starts at 1 and is increased until it gets a
+    ICMP "port unreachable". When it gets a ICMP "port unreachable" it means that it 
+    got to the destination or it hit a max.
+c) What command-line option causes traceroute to print numerical addresses.
+    -n
+d) Use traceroute with a remote host of your choosing as the target. Explain all the output.
+    traceroute ida.liu.se
+    traceroute to ida.liu.se (130.236.180.77), 30 hops max, 60 byte packets
+    1  gw-10-253-192.clients.eduroam.liu.se (10.253.192.1)  9.524 ms  9.482 ms  9.459 ms
+    2  fw--a-beb.net.liu.se (130.236.0.9)  5.943 ms  4.339 ms  9.419 ms
+    3  a-core--a-beb.net.liu.se (130.236.6.5)  9.410 ms  8.357 ms  9.378 ms
+    4  130.236.6.208 (130.236.6.208)  9.380 ms  9.371 ms  9.369 ms
+    5  informatix.ida.liu.se (130.236.180.77)  8.531 ms  9.350 ms  9.331 ms
+
+    The first column is the server namn and in parenthesis the IP adress for that server.
+    after that there is 3 different times that the displaces the RTT (Round Trip Times)
+    for each of the packets. It sends 3 different packages to each server, hence the
+    3 times.
+
+1-3:
+b) How do you display the current routing table using ip?
+    ip route
+
+1-4 sysctl command and answer the following.
+a) What is a sysctl (not what does the command do, but what a sysctl actually is).
+    Sysctl is a software utility, it reads attributes and modifies attributes of the system kernal.
+b) In what file can you place sysctl values so they are loaded at boot time.
+    /etc/sysctl1.conf or create a file ending with .conf in /etc/sysctl.d/
+c) Which sysctl controls IP forwarding.
+    sysctl net.ipv4.ip_forward
+1-5 Think of which addresses your hosts should use? Which names? Which netmasks and broadcast addresses?
+    Names: Server, Client1, Client2, Router
+    Netmask: 255.255.255.0
+    Addresses: 192.168.0.1 -> 192.168.0.254
+    Broadcast: 192.168.0.255
+1-6 Explain the difference between routing and forwarding (as related to IP networking).
+    Routing is the set of roules that defines how to send a packet forward.
+    Forwarding is the actual act of sending a packet forward.

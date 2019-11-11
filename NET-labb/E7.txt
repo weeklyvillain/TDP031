@@ -1,0 +1,12 @@
+7-1 Answer the following questions.
+a) What configuration file controls NSS.
+    /etc/default/nss
+b) What configuration file controls the resolver.
+    /etc/resolv.conf
+c) What does the "search" keyword in the resolver configuration file do.
+    It defines domains that is searched when a hostname doesn't contain
+    a dot. For example if we have the entry:
+        search  a.b.c d.b.c
+    If we query for X it will first try X.a.b.c, if that doesn't return a
+    match it will then try for X.d.b.c. If that fails it wont try anything
+    else.

@@ -1,0 +1,21 @@
+iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+-t = tables ( we are going to modify the NAT table )
+-A = Append and as parameter what rule-specification ( POSTROUTING )
+-o = out-interface, what interface the packet is going to be sent through ( ens3 )
+-j = jump, the target of the rule. Masquerade "hides" everything behind
+     the host, so if client-1 sends a request to liu.se the router
+     will make it so the request looks like it came from the router. liu.se
+     wont know that the request came from client-1, it will think that it
+     came from the router.
+
+iptables-save > /etc/iptables/rules.v4
+Save the iptables configuration to /etc/iptables/rules.v4
+
+iptables -t nat -L
+Show a list of all the rules in the NAT table.
+
+
+in /etc/network/interfaces:
+pre-up iptables-restore < /etc/iptables/rules.v4
+When the system loads the network interface load the iptables stored in
+/etc/iptables/rules.v4

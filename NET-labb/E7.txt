@@ -1,6 +1,6 @@
 7-1 Answer the following questions.
 a) What configuration file controls NSS.
-    /etc/default/nss
+    /etc/nsswitch.conf
 b) What configuration file controls the resolver.
     /etc/resolv.conf
 c) What does the "search" keyword in the resolver configuration file do.

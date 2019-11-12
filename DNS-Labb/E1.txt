@@ -52,3 +52,11 @@ g) How does the DNS protocol indicate if an answer comes from an authoritative n
 h) Explain what glue records are and when they are necessary.
     Glue records are necessary to not create a circular dependency ( a loop ).
     They provide the IP address for the name servers.
+
+1-3 Which zone in DNS contains PTR records corresponding to IP addresses in the network 10.131.24.64/27? Name some other networks that have PTR records in the same zone. What is the problem with delegating authority over the DNS records corresponding only to 10.131.24.64/27.
+    If you run nslookup on the IP you get the zone 64.24.131.10.in-addr.arpa
+    That network has 2^5 ip addresses = 32 ip addresses, so from 10.131.24.64 - 10.131.24.95
+
+    Another network that could be in the same zone 10.131.24.80/28
+    That network has 2^4 ip addresses = 16 ip addresses, so from 10.131.24.80 - 10.131.24.95
+    As we can see they are in the same zone (same IP addresses)

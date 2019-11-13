@@ -1,0 +1,19 @@
+2-1 Use the host tool to answer the following questions
+
+a) What is the address of informatix.ida.liu.se.
+130.236.180.77
+
+b) What is the address of www.ida.liu.se.
+130.236.180.77
+
+c) What is the address of liu.se.
+130.236.5.66
+
+2-2 Compare the output of host www.ida.liu.se ns3.liu.se and host www.ida.liu.se dns.liu.se and answer the following questions.
+a) Why is there no answer in the first query but in the second query.
+    ns3.liu.se is not respinsuble for the ida.liu.se zone so it has no information about the question.
+
+b) Both answers are correct, even though they differ. Explain why.
+    Both answers provide the information that they got,
+    ns3.liu.se does not have any other information and that is why the answere
+    is emtpy.

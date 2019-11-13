@@ -60,3 +60,8 @@ h) Explain what glue records are and when they are necessary.
     Another network that could be in the same zone 10.131.24.80/28
     That network has 2^4 ip addresses = 16 ip addresses, so from 10.131.24.80 - 10.131.24.95
     As we can see they are in the same zone (same IP addresses)
+
+1-4 Explain the purpose of classless in-addr.arpa delegation. Explain how it works.
+    The purpose of classless is to allocate IP addresses in smaller blocks
+    and by doing that get smaller zones.
+TODO: SVARA PÅ DEN ANDRA FRÅGAN PÅ 1-4!!!!

@@ -1,0 +1,12 @@
+3-1 Use host to find out which name servers are authoritative for the zone adlibris.se. Which organization(s) operate them.
+    host -t NS adlibris.se
+    Dipcon and ports are operating them.
+
+3-2 Use host to list all records in the ida.liu.se zone and wc to count them. How many records are there? If this is temporarily unavailable (181017), go on through the tasks.
+    host -a ida.liu.se |grep '^ida' | wc
+    The answere is 8.
+
+3-3 Use host to find out all information you can about the name ida.liu.se (i.e. the name itself, not the contents of the zone). What did you find out? How can you be sure that is all the information that is available.
+    host -a ida.liu.se
+    We can see the whole DNS query and the answere so we know that it is all the information.
+    According to the documentation the flag -a is also querying for any resource record.

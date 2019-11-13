@@ -1,0 +1,36 @@
+4-1 Use dig to answer the following questions. If the tests below fail, do this for www.ida.liu.se.
+a) What is the address of parlomba1.ida.liu.se.
+    Didn't work for parlomba1.ida.liu.se so we did the questions with ida.liu.se
+    dig ida.liu.se
+    Answer: 130.236.180.77
+
+b) Which nameservers have authoritative information for parlomba1.ida.liu.se.
+    dig -t NS ida.liu.se
+    ns.ida.liu.se
+    ns1.liu.se
+    ns2.liu.se
+
+c) Which name corresponds to the IPv4 address 130.236.180.77.
+    dig -x 130.236.180.77
+    informatix.ida.liu.se.
+
+4-2 Use the trace feature of dig to answer the following questions.
+a) What nameservers are consulted in a query for the A record of www.ida.liu.se.
+    dig -t A ida.liu.se +trace
+    ;; Received 525 bytes from 130.236.1.9#53(130.236.1.9) in 0 ms
+    ;; Received 977 bytes from 193.0.14.129#53(k.root-servers.net) in 28 ms
+    ;; Received 607 bytes from 130.239.5.114#53(g.ns.se) in 18 ms
+    ;; Received 1184 bytes from 130.236.6.252#53(ns3.liu.se) in 0 ms
+    ;; Received 152 bytes from 130.236.48.9#53(nsauth.isy.liu.se) in 0 ms
+
+b) What nameservers are consulted when determining the address of update.microsoft.com? Note that the presence of a CNAME record makes this question different from the previous one: you will need to run dig more than once to get the answer.
+    dig -t A update.microsoft.com +trace | grep 'Received'
+    dig -t A update.microsoft.com.nsatc.net +trace | grep 'Received'
+
+    ;; Received 525 bytes from 130.236.1.9#53(130.236.1.9) in 0 ms
+    ;; Received 1180 bytes from 192.5.5.241#53(f.root-servers.net) in 4 ms
+    ;; Received 678 bytes from 192.54.112.30#53(h.gtld-servers.net) in 21 ms
+    ;; Received 93 bytes from 208.84.2.53#53(ns2.msft.net) in 20 ms
+    ;; Received 1187 bytes from 192.36.148.17#53(i.root-servers.net) in 3 ms
+    ;; Received 1169 bytes from 192.26.92.30#53(c.gtld-servers.net) in 30 ms
+    ;; Received 163 bytes from 8.26.197.27#53(usa-a.prod1.footprint.net) in 177 ms
